@@ -1,9 +1,52 @@
 #import <Foundation/Foundation.h>
 
 
-
+//INTERFACE DECLARATIONS
 @interface UVAClient:NSObject
 @end
+
+@interface Util:NSObject
+@end
+
+@interface View:NSObject
+
+@end
+
+
+
+//CLASSES IMPLEMENTATIONS
+
+@implementation Util
++(NSString*) scanf{
+    
+    char word[40];
+    
+    scanf("%s", word);
+    
+    return [[NSString alloc] initWithCString:word encoding:NSUTF8StringEncoding];
+}
+
++(void) displayData:(NSArray * ) data {
+    
+    for(NSString * key in data){
+        NSLog(@"KEY : %@\n", key);
+        NSLog(@"VALUE : %@\n", [data valueForKey:key]);
+    }
+    
+}
+@end
+
+@implementation View
++(void) displayMenu {
+    NSLog(@"Select an option:\n");
+        NSLog(@"1. List submissions:\n");
+        NSLog(@"2. TODO \n");
+            NSLog(@"10. EXIT \n");
+
+}
+@end
+
+
 
 
 
@@ -57,19 +100,45 @@
 
 
 
-
+//START THE APPLICATION;
 int main(){
     
-    UVAClient * uc = [[UVAClient alloc] init];
+    UVAClient * UvaClient = [[UVAClient alloc] init];
 
-    NSArray * response =  [uc getSubmissions:339];
     
-    for (NSString * key in response) {
-        NSLog(@"%@", [response valueForKey:key]);
+    
+    while(true){
+        
+        NSString * option = [Util scanf];
+        
+        [View displayMenu];
+        
+        if([option isEqualToString:@"1"]){
+            [Util displayData:[UvaClient getSubmissions:[[Util scanf] intValue]]];
+        }else if([option isEqualToString:@"10"]){
+            NSLog(@"Saliendo de la aplicación..");
+            break;
+        }else{
+            NSLog(@"Invalid option");
+        }
     }
     
     
     
     
-    NSLog(@"%@", [response valueForKey:@"name" ]);
+//    NSLog(@"@the option selected was %@", );
+    
+    
+    
+    
+
+/*    NSArray * response =  [uc getSubmissions:339];
+    
+    for (NSString * key in response) {
+        NSLog(@"%@", [response valueForKey:key]);
+    }  
+    
+    
+    
+    NSLog(@"%@", [response valueForKey:@"name" ]);*/
  }

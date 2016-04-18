@@ -235,6 +235,7 @@
 				82CD7DBA1CC5443F00E0D715 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
