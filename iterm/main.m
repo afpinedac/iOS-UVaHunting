@@ -4,12 +4,11 @@
 #import "View.h"
 
 
+
 //START THE APPLICATION;
 int main(){
     
     UVAClient * UvaClient = [[UVAClient alloc] init];
-    
-    
     while(true){
         
         [View displayMenu];

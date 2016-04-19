@@ -1,20 +1,41 @@
-//
-//  UvaClient.m
-//  iterm
-//
-//  Created by Andres Pineda on 4/19/16.
-//  Copyright © 2016 Andres Pineda. All rights reserved.
-//
 
 
 #import "UvaClient.h"
 
-
+NSString * const UVA_API_URL = @"http://uhunt.felix-halim.net/api/{endpoint}";
 
 @implementation UVAClient:NSObject
 
--(NSArray * ) readData: (NSString*) url {
+/*CONVERT A USERNAME INTO A USERID*/
+
+-(NSString * ) convertUserNameToID : (NSString*) username {
+    return  [[NSString alloc] init];
+}
+
+/* READ ALL THE SUBMISSIONS OF A USER */
+-(NSArray * ) getSubmissions:(int)userID {
+    NSArray* data = [self readData:[UVAClient generateURL:[NSString stringWithFormat:@"/api/subs-user/%d", userID]]];
+    return data;
+}
+
+
+/*RETURN THE FULL LIST OF PROBLEMS */
+-(NSArray * ) getProblemsList {
+    return [self readData:[UVAClient generateURL:@"/p"]];
+}
+
+
+/* GENERATE THE LINK TO THE ENDPOINT */
++(NSString * ) generateURL:(NSString *) endpoint {
     
+    return [UVA_API_URL stringByReplacingOccurrencesOfString:@"{endpoint}" withString: endpoint];
+}
+/*------------------------------*/
+
+
+
+/* READ A URL AND RETURN THE CONTENT AS A JSON */
+-(NSArray * ) readData: (NSString*) url {
     
     @try{
         
@@ -35,28 +56,8 @@
         NSLog(@"Error making the requests");
     }
     
-    
 }
 
-
--(NSString * ) convertUserNameToID : (NSString*) username {
-    return  [[NSString alloc] init];
-}
-
--(NSArray * ) getSubmissions:(int)userID {
-    
-    NSString * EP = @"http://uhunt.felix-halim.net/api/subs-user/";
-    
-    NSArray* data = [self readData:[NSString stringWithFormat:@"%@%d", EP, userID]];
-    return data;
-}
-
--(NSArray * ) getProblemsList {
-    
-    NSString * EP = @"http://uhunt.felix-halim.net/api/p";
-    
-    return [self readData:EP];
-}
 
 @end
 
