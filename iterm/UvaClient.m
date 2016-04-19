@@ -14,7 +14,7 @@ NSString * const UVA_API_URL = @"http://uhunt.felix-halim.net/api/{endpoint}";
 
 /* READ ALL THE SUBMISSIONS OF A USER */
 -(NSArray * ) getSubmissions:(int)userID {
-    NSArray* data = [self readData:[UVAClient generateURL:[NSString stringWithFormat:@"/api/subs-user/%d", userID]]];
+    NSArray* data = [self readData:[UVAClient generateURL:[NSString stringWithFormat:@"/subs-user/%d", userID]]];
     return data;
 }
 
@@ -24,9 +24,20 @@ NSString * const UVA_API_URL = @"http://uhunt.felix-halim.net/api/{endpoint}";
     return [self readData:[UVAClient generateURL:@"/p"]];
 }
 
+/*RETURN THE PROBLEM INFORMATION */
+-(NSArray * ) getProblem: (int) pid{
+    NSArray *data = [self readData:[UVAClient generateURL:[NSString stringWithFormat:@"/p/id/%d", pid]]];
+    return data;
+}
+
+
 
 /* GENERATE THE LINK TO THE ENDPOINT */
 +(NSString * ) generateURL:(NSString *) endpoint {
+    //remove the slash
+    if([endpoint length] >0 && [endpoint hasPrefix:@"/"]){
+        endpoint = [endpoint substringFromIndex:1];
+    }
     
     return [UVA_API_URL stringByReplacingOccurrencesOfString:@"{endpoint}" withString: endpoint];
 }
@@ -36,6 +47,8 @@ NSString * const UVA_API_URL = @"http://uhunt.felix-halim.net/api/{endpoint}";
 
 /* READ A URL AND RETURN THE CONTENT AS A JSON */
 -(NSArray * ) readData: (NSString*) url {
+    
+    NSLog(@"calling the URL %@", url );
     
     @try{
         
@@ -53,7 +66,9 @@ NSString * const UVA_API_URL = @"http://uhunt.felix-halim.net/api/{endpoint}";
         return response;
         
     }@catch(NSException * e){
-        NSLog(@"Error making the requests");
+        NSLog(@"Error making the requests\n");
+        NSLog(@"An exception occurred: %@\n", e.name);
+        NSLog(@"Here are some details: %@\n", e);
     }
     
 }

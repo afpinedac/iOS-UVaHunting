@@ -15,5 +15,6 @@ extern NSString *const MyThingNotificationKey;
 
 -(NSArray * ) getSubmissions:(int)userID;
 -(NSArray * ) getProblemsList ;
+-(NSArray * ) getProblem: (int) pid ;
 +(NSString * ) generateURL:(NSString *) endpoint;
 @end
