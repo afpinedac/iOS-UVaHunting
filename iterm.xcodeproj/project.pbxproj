@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		820AF5D61CC6DDED008698D7 /* UvaClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 820AF5D51CC6DDED008698D7 /* UvaClient.m */; settings = {ASSET_TAGS = (); }; };
+		820AF5D81CC6E726008698D7 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 820AF5D71CC6E726008698D7 /* Util.m */; settings = {ASSET_TAGS = (); }; };
+		820AF5DC1CC6E7DB008698D7 /* View.m in Sources */ = {isa = PBXBuildFile; fileRef = 820AF5DB1CC6E7DB008698D7 /* View.m */; settings = {ASSET_TAGS = (); }; };
 		82CD7DB51CC5443F00E0D715 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CD7DB41CC5443F00E0D715 /* main.m */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +26,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		820AF5D41CC6DDDB008698D7 /* UvaClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UvaClient.h; sourceTree = "<group>"; };
+		820AF5D51CC6DDED008698D7 /* UvaClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UvaClient.m; sourceTree = "<group>"; };
+		820AF5D71CC6E726008698D7 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		820AF5D91CC6E730008698D7 /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		820AF5DA1CC6E7A4008698D7 /* View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = View.h; sourceTree = "<group>"; };
+		820AF5DB1CC6E7DB008698D7 /* View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = View.m; sourceTree = "<group>"; };
 		82CD7DB11CC5443F00E0D715 /* iterm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = iterm; sourceTree = BUILT_PRODUCTS_DIR; };
 		82CD7DB41CC5443F00E0D715 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +67,12 @@
 			isa = PBXGroup;
 			children = (
 				82CD7DB41CC5443F00E0D715 /* main.m */,
+				820AF5D41CC6DDDB008698D7 /* UvaClient.h */,
+				820AF5D51CC6DDED008698D7 /* UvaClient.m */,
+				820AF5D71CC6E726008698D7 /* Util.m */,
+				820AF5D91CC6E730008698D7 /* Util.h */,
+				820AF5DA1CC6E7A4008698D7 /* View.h */,
+				820AF5DB1CC6E7DB008698D7 /* View.m */,
 			);
 			path = iterm;
 			sourceTree = "<group>";
@@ -118,7 +133,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				820AF5DC1CC6E7DB008698D7 /* View.m in Sources */,
 				82CD7DB51CC5443F00E0D715 /* main.m in Sources */,
+				820AF5D61CC6DDED008698D7 /* UvaClient.m in Sources */,
+				820AF5D81CC6E726008698D7 /* Util.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
