@@ -1,0 +1,9 @@
+
+
+#define DEBUG_MODE TRUE
+
+#if DEBUG_MODE
+#define IN_DEVELOPMENT TRUE
+#else
+#define IN_DEVELOPMENT FALSE
+#endif

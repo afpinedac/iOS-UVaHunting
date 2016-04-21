@@ -1,8 +1,9 @@
 
 
 #import "UvaClient.h"
+#import "Constants/Constants.h"
 
-NSString * const UVA_API_URL = @"http://uhunt.felix-halim.net/api/{endpoint}";
+
 
 @implementation UVAClient:NSObject
 
@@ -55,7 +56,7 @@ NSString * const UVA_API_URL = @"http://uhunt.felix-halim.net/api/{endpoint}";
         endpoint = [endpoint substringFromIndex:1];
     }
     
-    return [UVA_API_URL stringByReplacingOccurrencesOfString:@"{endpoint}" withString: endpoint];
+    return [API_UVA_HUNT_URL stringByReplacingOccurrencesOfString:@"{endpoint}" withString: endpoint];
 }
 
 
@@ -71,9 +72,8 @@ NSString * const UVA_API_URL = @"http://uhunt.felix-halim.net/api/{endpoint}";
     @try{
         
         NSError * error = NULL;
-        NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
-        
-NSLog(@">>%d", [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error]);
+        NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];        
+
         NSArray * response = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
         
         if(error != NULL){

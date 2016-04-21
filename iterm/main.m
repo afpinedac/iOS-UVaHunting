@@ -2,6 +2,9 @@
 #import "UvaClient.h"
 #import "Util.h"
 #import "View.h"
+#import "Constants/Constants.h"
+#import "Application/Config.h"
+
 
 
 
@@ -11,8 +14,8 @@ int main(){
     UVAClient * UvaClient = [[UVAClient alloc] init];
     
     bool exit = NO;
-    while(!exit){
-        
+    while(!exit){    
+
         [View displayMenu];
         
         NSString * option = [Util scanf];
