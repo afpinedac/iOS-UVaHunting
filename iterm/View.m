@@ -14,17 +14,14 @@
 @implementation View
 +(void) displayMenu {
     NSLog(@"Select an option:\n");
-    NSLog(@"1. List submissions:\n");
+    NSLog(@"1. List user submissions:\n");
     NSLog(@"2. List all problems in the UVA \n");
-    NSLog(@"3. Read specific problem\n");
-    NSLog(@"4. Read submissions to specific problem [todo]\n");
-    NSLog(@"5. Problem ranklist [todo]\n");
-    NSLog(@"6. Problem ranklist [todo]\n");
-    NSLog(@"7. user Submissions [todo]\n");
-    NSLog(@"8. user Submissions [todo]\n");
-    NSLog(@"9. user ranklist [todo]\n");
-    NSLog(@"10. EXIT \n");
-    
+    NSLog(@"3. Read information of a specific problem\n");
+    NSLog(@"4. Read submissions to specific problem\n");
+    NSLog(@"5. Problem ranklist \n");
+    NSLog(@"6. User Ranklist\n");
+    NSLog(@"7. Convert username into an ID");
+    NSLog(@"100. EXIT \n");
 }
 @end
 

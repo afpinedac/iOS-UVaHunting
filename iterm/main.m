@@ -18,10 +18,14 @@ int main(){
         NSString * option = [Util scanf];
         int selectedOption = [option intValue];
         
+        
+        //options to select
+        int pid, rank, count;
+        
         switch (selectedOption) {
             case 1:
                 NSLog(@"Getting submission list");
-                [Util displayData:[UvaClient getSubmissions:[[Util scanf] intValue]]];
+                [Util displayData:[UvaClient getUserSubmissions:[[Util scanf] intValue]]];
                 break;
                 
             case 2:
@@ -31,16 +35,26 @@ int main(){
             case 3:
                 [Util displayData:[UvaClient getProblem:[[Util scanf] intValue]]];
             case 4:
+                //[Util displayData:[UvaClient  ]]
+                break;
             case 5:
-            case 6:
-            case 7:
-            case 8:
-            case 9:
-                NSLog(@"To be implemented");
+                NSLog(@"Getting problem ranklist");
+                pid = [[Util scanf] intValue];
+                rank = [[Util scanf] intValue];
+                count = [[Util scanf] intValue];
+                [Util displayData:[UvaClient getProblemRanking:pid rank:rank count:count]];
                 break;
                 
-            case 10 :
-                exit = YES;
+            case 6:
+            NSLog(@"Getting the user position in ranking");
+                [Util displayData:[UvaClient getUserRanking:[[Util scanf] intValue] nabove:[[Util scanf] intValue] nbelow: [[Util scanf] intValue]]] ;                
+            case 7:
+                [Util displayData:[UvaClient convertUserNameToID:[Util scanf]]];
+                break;
+                
+            case 100:
+                break;
+
             default:
                 break;
         }
